@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  orgCount: any = 0;
+  travelCount: any = 0;
+  visaCount: any = 0;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  pushToPage(request, status) {
+    // this.router.navigate(['/Dashboard/Org-Travel-List']);
+
+  }
+  pushToPageVisa() {
+    // this.router.navigate(['/Dashboard/Org-Visa-Request']);
+  }
+  pushToPageOrganisation() {
+    // this.router.navigate(['/Dashboard/organisation']);
+  }
 }

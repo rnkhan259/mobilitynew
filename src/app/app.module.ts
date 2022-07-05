@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,12 @@ import { VendorComponent } from './admin/vendor/vendor.component';
 import { VisaDocComponent } from './admin/visa-doc/visa-doc.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { ViewTravelComponent } from './view-travel/view-travel.component';
+import { TokenInterceptorService } from './interceptor/token-interceptor.service';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+
+// import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -52,9 +58,22 @@ import { ViewTravelComponent } from './view-travel/view-travel.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    
+    // MatSlideToggleModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    }
+  ],
+  bootstrap: [AppComponent],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }
