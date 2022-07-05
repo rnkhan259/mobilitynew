@@ -1,0 +1,113 @@
+// @media only screen and (min-width: 961px) {
+//   ::ng-deep .marleft {
+//     margin-left: 200px;
+//   }
+// }
+
+.table-head-fix {
+  font-size: 16px;
+  color: #fb8c00;
+}
+
+.visaRequestCard {
+  font-size: 22px;
+  margin-left: 87px;
+  margin-top: -33px;
+}
+
+.Immigration {
+  font-size: 11px;
+  margin-left: 37px;
+  margin-top: -28px;
+}
+
+.tp-button-row button,
+.tp-button-row a {
+  margin-right: 8px;
+}
+
+.titleDiv {
+  width: 97%;
+  margin: 2% auto -4px;
+}
+
+.colorStyle::-webkit-meter-optimum-value {
+  background: #9540a9 !important;
+}
+
+.meterTag2 {
+  width: 97%;
+  height: 0.3vw;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+.btnStyle {
+  color: #9540a9;
+  border: 1px solid #9540a9;
+  margin-top: 10%;
+  border-radius: 5px;
+}
+
+.borderRight {
+  border-right: 1px solid #ccc;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.travelRequestDiv1 {
+  display: table;
+}
+
+.travelRequestDiv1 span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.travelRequestDiv1 span:nth-of-type(1) {
+  width: 20%;
+  background: url("/assets/icons/new-request.png") no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.travelRequestDiv1 span:nth-of-type(2) {
+  font-size: 1.2rem;
+  width: 70%;
+  text-align: left !important;
+  padding-left: 6%;
+}
+
+.travelRequestDiv1 span:nth-of-type(3) {
+  font-size: 2rem;
+  width: 10%;
+  font-weight: bold;
+}
+
+.travelRequestDiv2 span:nth-of-type(1) {
+  background: url("/assets/icons/in-progress.png") no-repeat !important;
+  background-size: auto;
+  background-position: center;
+}
+
+.travelRequestDiv3 span:nth-of-type(1) {
+  background: url("/assets/icons/closed.png") no-repeat !important;
+  background-size: auto;
+  background-position: center;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .travelRequestDiv1 span:nth-of-type(1) {
+    background-size: 100%;
+  }
+
+  .travelRequestDiv2 span:nth-of-type(1) {
+    background-size: 100% !important;
+  }
+
+  .travelRequestDiv3 span:nth-of-type(1) {
+    background-size: 100% !important;
+  }
+}

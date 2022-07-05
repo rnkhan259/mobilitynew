@@ -1,0 +1,236 @@
+.main-div {
+  height: 100%;
+}
+
+.sub-div {
+  height: 100%;
+  background: url("/assets/icons/wonders_bg.png");
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  border-radius: 10px;
+}
+
+.bg-white {
+  background-color: #fff;
+  margin: 5% 2%;
+  width: 96%;
+  height: 65vh;
+  border-radius: 10px;
+
+}
+
+.logo-img {
+  margin-top: 8%;
+  margin-left: 5%;
+  width: 40%;
+
+  .logo-image {
+    width: 100%;
+  }
+}
+
+.toggle {
+  margin-left: 10%;
+  font-size: 1.1em;
+  margin-top: 25px;
+}
+
+.form-control {
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 10%;
+  height: 3rem;
+  background: url('../../assets/icons/userIcon.png') no-repeat;
+  background-size: 5%;
+  background-position: 98% center;
+}
+
+.password {
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  background: url('../../assets/icons/passwordIcon.png') no-repeat;
+  background-size: 5%;
+  background-position: 98% center;
+}
+
+
+.sb-div {
+  height: 100%;
+  background-color: #f6f6f6;
+  box-shadow: -3px 0 2px #c8c8c8;
+
+  .card-img-top {
+    width: 85%;
+    margin-left: 10%;
+    margin-right: 15%;
+  }
+
+}
+
+.sb-div-right {
+  background: url('../../assets/icons/pattern.png') no-repeat, url('../../assets/icons/travel_person.png') no-repeat;
+  background-size: 20%, 75%;
+  background-position: right top, bottom center;
+}
+
+.pattern-img {
+  width: 25%;
+  height: 20%;
+  margin-left: 77.7%;
+}
+
+.secondDivtext {
+  font-size: 2em;
+  margin-left: 5%;
+  margin-top: 6%;
+  color: #656565;
+}
+
+.secondDivtext2 {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-left: 5%;
+}
+
+.person {
+  margin-left: 70%;
+  width: 4%;
+}
+
+a {
+  margin-left: 65% !important;
+  font-size: 1em;
+  margin: 0 2% 2%;
+  color: #0596ea;
+}
+
+.btn-login {
+  text-align: right;
+  margin-right: 14%;
+  margin-top: 5px;
+  border-radius: 5px;
+
+}
+
+.primary {
+  background: #9540a9;
+  color: #fff;
+}
+
+.signText {
+  margin-bottom: 5%;
+  color: #e83e8c;
+  margin-top: 10%;
+  margin-left: 5%
+}
+
+h5 {
+  font-size: 1.64rem;
+  line-height: 110%;
+  margin: 1.0933333333rem 0 0.656rem;
+}
+
+.lbl {
+  margin-left: 5%;
+
+}
+
+.cstmBtn {
+  background: #9540a9;
+  color: #fff;
+  margin-right: 5%;
+}
+
+.cstmBtn1 {
+  background: #9540a9;
+  color: #fff;
+  margin-right: 7%;
+}
+
+.cstmInput {
+  height: 2.5rem;
+}
+
+.inputMargin {
+  margin-top: 2%;
+  margin-left: 3%;
+}
+
+.form-control {
+  width: 85% !important;
+  padding: 0.375rem 0.75rem !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #495057 !important;
+  margin-left: 3%;
+  border: 1px solid #ced4da !important;
+}
+
+.inputPadding2 {
+  margin-top: 5%;
+  float: right;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.secondBtnColor {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 120%;
+  font-weight: 600;
+  margin-right: 10px;
+  color: rgb(151, 63, 63);
+  border: 1px solid;
+}
+
+.mainBtnColor {
+  background: #9540a9;
+  color: #fff;
+  float: right;
+  border-radius: 5px;
+  width: 120%;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+@media only screen and (min-width:300px) and (max-width:767px) {
+  .displaynone {
+    display: none !important;
+  }
+
+  .main-div {
+    height: 85vh;
+  }
+
+  .logo-img {
+    margin-top: 50%;
+    width: 20% !important;
+  }
+
+  .toggle {
+    margin-left: 0% !important;
+  }
+
+  .logo-image {
+    width: 10em !important;
+    margin-right: 10% !important;
+  }
+
+  .forgotpass {
+    font-size: 1em;
+    // float: right;
+    margin-left: 50% !important;
+    //margin: 0 2% 2%;  
+  }
+
+  h5 {
+    font-size: 1.4rem;
+    margin-left: 4%;
+  }
+
+}

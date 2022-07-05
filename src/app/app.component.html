@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<div class="content {{storedTheme}}" role="main">
+    <div class="theme-options">
+
+        <div id="theme-white" [ngClass]="(storedTheme ==='theme-white') ? 'active' : '' "
+            (click)="setTheme('theme-white')"></div>
+        <div id="theme-black" [ngClass]="(storedTheme ==='theme-black') ? 'active' : '' "
+            (click)="setTheme('theme-black')"></div>
+        <div id="theme-orange" [ngClass]="(storedTheme ==='theme-orange') ? 'active' : '' "
+            (click)="setTheme('theme-orange')"></div>
+        <div id="theme-purple" [ngClass]="(storedTheme ==='theme-purple') ? 'active' : '' "
+            (click)="setTheme('theme-purple')"></div>
+    </div>
+
+    <div *ngIf="router.url!='/login' && router.url!=''">
+        <app-side-nav></app-side-nav>
+    </div>
+    <router-outlet style="z-index: 0;"></router-outlet>
