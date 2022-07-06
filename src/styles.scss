@@ -2,6 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "common.scss";
 
 * {
   box-sizing: border-box;
@@ -92,6 +93,7 @@ body {
 .mat-slide-toggle-thumb {
   width: 25px;
   height: 25px;
+  background-color: #fff;
 }
 
 .mat-slide-toggle-bar {
@@ -99,6 +101,10 @@ body {
   height: 20px;
   border-radius: 43px;
   background-color: #9540a9;
+}
+
+.mat-slide-toggle-input{
+  display: none!important;
 }
 
 .content {

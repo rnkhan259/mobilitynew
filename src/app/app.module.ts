@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +28,12 @@ import { ViewTravelComponent } from './view-travel/view-travel.component';
 import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
-// import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -54,15 +58,18 @@ import { FormsModule } from '@angular/forms';
     VendorComponent,
     VisaDocComponent,
     AddTravelComponent,
-    ViewTravelComponent
+    ViewTravelComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-    // MatSlideToggleModule
+    MatSidenavModule,
+    MatToolbarModule,    
+    MatSlideToggleModule
   ],
   providers: [
     {

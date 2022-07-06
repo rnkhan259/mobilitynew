@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiserviceService) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
+    localStorage.clear();
   }
 
   onSubmit(signInForm: NgForm) {
