@@ -11,7 +11,8 @@
             (click)="setTheme('theme-purple')"></div>
     </div>
 
-    <div *ngIf="router.url!='/login' && router.url!=''">
-        <app-side-nav></app-side-nav>
+    <div *ngIf="router.url !='/login' && router.url !='/'">
+        <app-sidenav></app-sidenav>
     </div>
     <router-outlet style="z-index: 0;"></router-outlet>
+</div>

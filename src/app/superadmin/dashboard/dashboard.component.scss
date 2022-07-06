@@ -55,43 +55,43 @@
   margin-bottom: 2%;
 }
 
-.travelRequestDiv1 {
-  display: table;
-}
 
-.travelRequestDiv1 span {
+.display-table span {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
-.travelRequestDiv1 span:nth-of-type(1) {
+.display-table span:nth-of-type(1) {
   width: 20%;
-  background: url("/assets/icons/new-request.png") no-repeat;
-  background-size: auto;
-  background-position: center;
 }
 
-.travelRequestDiv1 span:nth-of-type(2) {
+.display-table span:nth-of-type(2) {
   font-size: 1.2rem;
   width: 70%;
   text-align: left !important;
   padding-left: 6%;
 }
 
-.travelRequestDiv1 span:nth-of-type(3) {
+.display-table span:nth-of-type(3) {
   font-size: 2rem;
   width: 10%;
   font-weight: bold;
 }
 
-.travelRequestDiv2 span:nth-of-type(1) {
+.org{
+  background: url("/assets/icons/new-request.png") no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.travel {
   background: url("/assets/icons/in-progress.png") no-repeat !important;
   background-size: auto;
   background-position: center;
 }
 
-.travelRequestDiv3 span:nth-of-type(1) {
+.visa {
   background: url("/assets/icons/closed.png") no-repeat !important;
   background-size: auto;
   background-position: center;

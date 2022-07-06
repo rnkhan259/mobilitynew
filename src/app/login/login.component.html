@@ -4,17 +4,21 @@
             <div class="logo-img">
                 <img class="logo-image" src="assets/icons/logo.png">
             </div>
-            <!-- <div class="toggle">Login with password <mat-slide-toggle [checked]="viaOtp" [disabled]=false
-                    (change)="changeToggle($event)"></mat-slide-toggle>
-                Login with Otp</div> -->
+            <div class="toggle">
+                Login with password
+                <mat-slide-toggle [checked]="viaOtp" [disabled]=false (change)="changeToggle($event)" ></mat-slide-toggle>
+                Login with Otp
+            </div>
 
             <div *ngIf="!forgot && !viaOtp">
 
 
                 <div class="search">
-                    <input class="form-control" type="text" placeholder="Username" [(ngModel)]="username" aria-label="Search">
+                    <input class="form-control" type="text" placeholder="Username" [(ngModel)]="username"
+                        aria-label="Search">
 
-                    <input class="form-control password" type="password" placeholder="Password" [(ngModel)]="password" aria-label="Search">
+                    <input class="form-control password" type="password" placeholder="Password" [(ngModel)]="password"
+                        aria-label="Search">
 
                 </div>
                 <a class="forgotpass" (click)="forgotPass()">Forgot password?</a>
