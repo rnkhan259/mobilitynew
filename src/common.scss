@@ -1091,8 +1091,12 @@
   margin-top: 25%;
 }
 
-.display-table{
+.display-table {
   display: table;
+}
+
+table{
+  width: 100%;
 }
 
 .white {
@@ -1101,4 +1105,21 @@
 
 .mat-elevation-z4 {
   box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+}
+
+
+.searchDiv {
+  float: right;
+  margin-top: 1%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  width: 20%;
+}
+
+.searchImg {
+  background: url(/assets/icons/search.png) no-repeat #fff;
+  background-size: 7%;
+  background-position: 4% center;
+  border-radius: 25px !important;
+  padding: 0 0 0 15%;
 }

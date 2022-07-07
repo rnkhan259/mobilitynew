@@ -14,8 +14,14 @@ export class AppComponent {
     public router: Router,
 
   ) { }
-  setTheme(theme: any) {
-    localStorage.setItem('theme-color', theme);
+
+
+  ngDoCheck() {
     this.storedTheme = localStorage.getItem('theme-color');
   }
+
+  // setTheme(theme: any) {
+  //   localStorage.setItem('theme-color', theme);
+  //   this.storedTheme = localStorage.getItem('theme-color');
+  // }
 }
