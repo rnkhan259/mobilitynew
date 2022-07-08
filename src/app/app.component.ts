@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'MobilitySQR';
   storedTheme: any = localStorage.getItem('theme-color');
-
+  public spinkit = Spinkit;
   constructor(
     public router: Router,
 

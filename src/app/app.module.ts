@@ -41,6 +41,8 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -71,8 +73,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     FormsModule,
     MatSidenavModule,
     MatToolbarModule,    

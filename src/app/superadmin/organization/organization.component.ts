@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -5,6 +6,7 @@ import { ApiserviceService } from 'src/app/sevices/apiservice.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { CommonserviceService } from 'src/app/sevices/commonservice.service';
 
 
 interface Org {
@@ -28,18 +30,15 @@ export class OrganizationComponent implements OnInit {
   @ViewChild('paginator') paginator: MatPaginator;
   @ViewChild('sort') sort: MatSort;
   columns: string[] = ['id', 'name', 'info', 'address', 'city', 'Action'];
-  constructor(private apiService: ApiserviceService) { }
+  constructor(private router:Router,private apiService: ApiserviceService,private commonService:CommonserviceService) { }
 
   ngOnInit(): void {
     this.getList();
   }
 
   getList() {
-
-    // this.spinnerService.show()
     this.apiService.requestViaGet('/add_organization/').then(
       (result: any) => {
-        // this.spinnerService.hide()
         if (result.status) {
           this.orgList = result.results;
           var dataArr=[];
@@ -56,12 +55,19 @@ export class OrganizationComponent implements OnInit {
           }
           this.dataSource=new MatTableDataSource(dataArr)
         } else {
-          // this.spinnerService.hide();
+          this.commonService.showError("Alert","No Record Found");
         }
       },
       (error) => {
-        // this.spinnerService.hide();
       }
     );
+  }
+
+  showInfo(id){
+    this.router.navigate(['/superadmin/organization-detail',id])
+  }
+
+  addOrg(){
+    this.router.navigate(['/superadmin/organization-detail',""])
   }
 }

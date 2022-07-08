@@ -1,3 +1,4 @@
+import { AddOrganizationComponent } from './superadmin/add-organization/add-organization.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
@@ -17,6 +18,10 @@ const routes: Routes = [
   }, {
     path: 'superadmin/organization',
     component: OrganizationComponent,
+    canActivate: [AuthGuard]
+  }, {
+    path: 'superadmin/organization-detail/:id',
+    component: AddOrganizationComponent,
     canActivate: [AuthGuard]
   }, {
     path: '**',

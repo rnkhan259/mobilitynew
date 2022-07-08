@@ -13,7 +13,7 @@
 
 .bg-white {
   background-color: #fff;
-  margin: 5% 2%;
+  margin: 12% 2%;
   width: 96%;
   height: 65vh;
   border-radius: 10px;
@@ -204,8 +204,15 @@ h5 {
     display: none !important;
   }
 
+  .content-box {
+    width: 100%;
+    padding: 0;
+  }
+
   .main-div {
-    height: 85vh;
+    height: 100vh;
+    margin: 0;
+    width: 100%;
   }
 
   .logo-img {
