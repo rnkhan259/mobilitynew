@@ -1,5 +1,5 @@
 <div class="content {{storedTheme}}" role="main">
-    <div class="theme-options">
+    <!-- <div class="theme-options">
 
         <div id="theme-white" [ngClass]="(storedTheme ==='theme-white') ? 'active' : '' "
             (click)="setTheme('theme-white')"></div>
@@ -9,10 +9,11 @@
             (click)="setTheme('theme-orange')"></div>
         <div id="theme-purple" [ngClass]="(storedTheme ==='theme-purple') ? 'active' : '' "
             (click)="setTheme('theme-purple')"></div>
-    </div>
+    </div> -->
 
     <div *ngIf="router.url !='/login' && router.url !='/'">
         <app-sidenav></app-sidenav>
     </div>
     <router-outlet style="z-index: 0;"></router-outlet>
 </div>
+<ng-http-loader [spinner]="spinkit.skCubeGrid"></ng-http-loader>

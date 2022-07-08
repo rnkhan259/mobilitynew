@@ -32,8 +32,17 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -64,12 +73,21 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     FormsModule,
     MatSidenavModule,
     MatToolbarModule,    
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    NgxPaginationModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     {

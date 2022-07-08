@@ -1,1 +1,61 @@
-<p>organization works!</p>
+<div class="row marleft">
+    <div class="col m10 s10">
+        <div class="searchDiv">
+            <input matInput class="form-control form-control-sm searchImg" type="text" name="search" autocomplete="off"
+                placeholder="Search">
+        </div>
+        <div class="tableMainDiv">
+            <div>
+                <table mat-table [dataSource]="dataSource" matSort #sort="matSort" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="org_id">ID </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeading">Name</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="info">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeading">Information</th>
+                        <td mat-cell *matCellDef="let element">{{element.info}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeading">Address</th>
+                        <td mat-cell *matCellDef="let element">{{element.address}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="city">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeading">City</th>
+                        <td mat-cell *matCellDef="let element">{{element.city}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeading">Actions</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button (click)="showInfo(element.Action)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <!-- <button mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu" yPosition="above" xPosition="before">
+                                <button mat-menu-item>
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Edit</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Delete</span>
+                                </button>
+                            </mat-menu> -->
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+                </table>
+                <mat-paginator #paginator [length]="orgList.length" [pageSizeOptions]="[10, 50, 100]"
+                    showFirstLastButtons></mat-paginator>
+            </div>
+
+        </div>
+    </div>
+</div>

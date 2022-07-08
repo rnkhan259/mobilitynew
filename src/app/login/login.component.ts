@@ -2,6 +2,7 @@ import { ApiserviceService } from './../sevices/apiservice.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonserviceService } from '../sevices/commonservice.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   email: any = '';
   emailPhn: string = '';
   small = false;
-  constructor(private router: Router, private apiService: ApiserviceService) { }
+  constructor(private router: Router, private apiService: ApiserviceService, private commonService:CommonserviceService) { }
 
   ngOnInit(): void {
     sessionStorage.clear();
@@ -47,24 +48,17 @@ export class LoginComponent implements OnInit {
       password: this.password,
     }
 
-    // this.spinnerService.show()
     this.apiService.requestViaPost('/api/custom/login/', postParams).then(
-      //this.authService.requestViaPost('api/login/', postParams).then(
       (result: any) => {
-        if (result.access) {
+        if (result.access && result.status) {
           localStorage.setItem('show', '')
           sessionStorage.setItem('token', result['access']);
           sessionStorage.setItem('refreshToken', result['refresh']);
           this.router.navigate(['/superadmin/dashboard']);
-          // this.getUserInfo();
-          // }
         } else {
-          // this.spinnerService.hide()
-          // this.authService.commonConfirmationAlert('', result.massage, '')
+          this.commonService.showError('Error', result.massage);
         }
       }, (err) => {
-        // this.error = true;
-        // this.spinnerService.hide()
       }
     );
     // this.router.navigate(['/dashboard']);
@@ -79,9 +73,7 @@ export class LoginComponent implements OnInit {
        console.log(data);
        
       }, (err) => {
-        // this.authService.commonConfirmationAlert('Alert', 'Something went wrong! Try again later.', '')
-        // this.error = true;
-        // this.spinnerService.hide()
+        
       }
     );
   }

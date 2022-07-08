@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,19 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'MobilitySQR';
   storedTheme: any = localStorage.getItem('theme-color');
-
+  public spinkit = Spinkit;
   constructor(
     public router: Router,
 
   ) { }
-  setTheme(theme: any) {
-    localStorage.setItem('theme-color', theme);
+
+
+  ngDoCheck() {
     this.storedTheme = localStorage.getItem('theme-color');
   }
+
+  // setTheme(theme: any) {
+  //   localStorage.setItem('theme-color', theme);
+  //   this.storedTheme = localStorage.getItem('theme-color');
+  // }
 }

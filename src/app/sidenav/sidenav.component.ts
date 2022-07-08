@@ -8,6 +8,7 @@ import { map, Observable } from 'rxjs';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
+  storedTheme: any = localStorage.getItem('theme-color');
   small: boolean = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -29,6 +30,11 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  setTheme(theme: any) {
+    localStorage.setItem('theme-color', theme);
+    this.storedTheme = localStorage.getItem('theme-color');
   }
 
 }
