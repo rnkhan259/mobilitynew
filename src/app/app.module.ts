@@ -16,6 +16,7 @@ import { AirincComponent } from './airinc/airinc.component';
 import { CountryGuideComponent } from './admin/country-guide/country-guide.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { RoleComponent } from './admin/role/role.component';
+import { ReportsComponent } from './admin/reports/reports.component';
 import { TaxgridComponent } from './admin/taxgrid/taxgrid.component';
 import { TemplateComponent } from './admin/template/template.component';
 import { AllowanceComponent } from './admin/allowance/allowance.component';
@@ -38,11 +39,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { PowerBIEmbedModule } from 'powerbi-client-angular';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +63,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     CountryGuideComponent,
     EmployeeComponent,
     RoleComponent,
+    ReportsComponent,
     TaxgridComponent,
     TemplateComponent,
     AllowanceComponent,
@@ -87,7 +92,9 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     MatPaginatorModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatRadioModule,
+    MatIconModule,
+    PowerBIEmbedModule
   ],
   providers: [
     {

@@ -61,11 +61,11 @@
                   <div class="col-md-4">
                     <label for="recipient-name" class="col-form-label">Status:
                     </label>
-                    <!-- <mat-radio-group style="line-height: 2.2;" [ngModelOptions]="{standalone: true}"
-                      (change)="onChange($event)" name="opList" [(ngModel)]="statusOrg">
+                    <mat-radio-group [ngModelOptions]="{standalone: true}"
+                      (change)="onStatusChange($event)" name="opList" [(ngModel)]="statusOrg">
                       <mat-radio-button value="1" checked="true" name="opList">Active</mat-radio-button>
-                      <mat-radio-button style="margin-left: 16px;" value="0" name="opList">Inactive</mat-radio-button>
-                    </mat-radio-group> -->
+                      <mat-radio-button value="0" name="opList">Inactive</mat-radio-button>
+                    </mat-radio-group>
                   </div>
                   <div class="col-md-4" *ngIf="isStatusActive">
                     <label for="recipient-name" class="col-form-label">Active Start Date<span

@@ -16,6 +16,10 @@ export class CommonserviceService {
     this.toastr.error(msg, title);
   }
 
+  showAlert(title, msg) {
+    this.toastr.warning(msg, title);
+  }
+
   isNumber(evt) {
     var iKeyCode = (evt.which) ? evt.which : evt.keyCode
     if (iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57)) {

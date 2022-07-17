@@ -31,15 +31,22 @@ export class LoginComponent implements OnInit {
     console.log(signInForm.value);
   }
 
+  keyDownFunction(val) {
+    if (val.keyCode === 13) {
+      this.signIn();
+      // rest of your code
+    }
+  }
+
   signIn() {
 
     if (this.username == '') {
-      alert('Please enter Username');
+      this.commonService.showAlert('Alert','Please enter Username');
       return;
     }
 
     if (this.password == '') {
-      alert('Please enter password');
+      this.commonService.showAlert('Alert','Please enter password');
       return;
     }
 

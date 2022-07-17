@@ -5,6 +5,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './superadmin/dashboard/dashboard.component';
 import { OrganizationComponent } from './superadmin/organization/organization.component';
+import { ReportsComponent } from './admin/reports/reports.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,11 @@ const routes: Routes = [
     path: 'superadmin/organization-detail/:id',
     component: AddOrganizationComponent,
     canActivate: [AuthGuard]
-  }, {
+  },  {
+    path: 'reports',
+    component: ReportsComponent,
+    canActivate: [AuthGuard]
+  },{
     path: '**',
     component: LoginComponent
   }
