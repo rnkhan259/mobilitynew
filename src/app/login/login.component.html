@@ -10,7 +10,7 @@
                 Login with Otp
             </div>
 
-            <div *ngIf="!forgot && !viaOtp">
+            <div *ngIf="!forgot && !viaOtp" (keydown)="keyDownFunction($event)">
 
 
                 <div class="search">
@@ -23,7 +23,7 @@
                 </div>
                 <a class="forgotpass" (click)="forgotPass()">Forgot password?</a>
                 <div class="btn-login">
-                    <button type="submit" mat-raised-button class="primary" (click)="signIn();">Sign in</button>
+                    <button type="submit" mat-raised-button class="primary" (keyup.enter)="signIn()" (click)="signIn();">Sign in</button>
                 </div>
                 <div class="white section1 mat-elevation-z4"></div>
             </div>

@@ -32,6 +32,7 @@ export class AddOrganizationComponent implements OnInit {
   isStatusActive: boolean = true;
   country: any;
   state: any;
+  statusOrg:any="0";
   constructor(private route: ActivatedRoute, private apiService: ApiserviceService,public commonService:CommonserviceService) {
     this.id = this.route.snapshot.paramMap.get("id");
   }
@@ -40,6 +41,16 @@ export class AddOrganizationComponent implements OnInit {
     if (this.id) {
       this.getOrg();
     }
+  }
+
+  onStatusChange(mrChange: any) {
+    this.statusOrg = mrChange.value
+    if (this.statusOrg == "1") {
+      this.isStatusActive = true
+    } else {
+      this.isStatusActive = false
+    }
+    // let mrButton: MatRadioButton = mrChange.source;
   }
 
   getOrg() {
@@ -52,9 +63,7 @@ export class AddOrganizationComponent implements OnInit {
           this.found_year = data.year_founded;
           this.hq_add = data.HQ_add;
           this.country = data.country;
-          // this.country2 = data.country;
           this.state = data.state;
-          // this.state2 = data.state;
           this.city = data.city;
           this.orgInfo = data.org_info;
           this.organisationType = data.org_type;
@@ -67,9 +76,9 @@ export class AddOrganizationComponent implements OnInit {
           this.personMail = data.contact_person_email;
           this.personPhn = data.contact_person_phone;
           if (data.status == true) {
-            // this.statusOrg = "1";
+            this.statusOrg = "1";
           } else {
-            // this.statusOrg = "0";
+            this.statusOrg = "0";
             this.isStatusActive = false
           }
           this.active_start_date = data.start_date
