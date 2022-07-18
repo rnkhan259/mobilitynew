@@ -1,1 +1,84 @@
-<p>users works!</p>
+<div class="row marleft">
+    <div class="col m10 s10">
+        <div class="col m12 s12 mainDivStyle">
+            <div class="col m12 s12 white mat-elevation-z4 paddingBottomstyle">
+                <div class="row Rowstyle">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Organization Name<span
+                                style="color: red;">*</span></label>
+                        <select class="form-control inputStyle" [(ngModel)]="organization" name="SelectRole">
+                            <option value="">Select Organization</option>
+                            <option *ngFor="let j of orgList" value={{j.org_id}}>{{j.org_name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Employee Code<span
+                                style="color: red;">*</span></label>
+                        <input (keypress)="commonService.blockspecialcharacter($event)" type="text"
+                            class="form-control inputStyle" [(ngModel)]="emp_code" name="EmpCode"
+                            placeholder="Enter code" />
+                    </div>
+
+                </div>
+                <div class="row Rowstyle">
+
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Login Method<span
+                                style="color: red;">*</span></label>
+                        <select class="form-control inputStyle" [(ngModel)]="login_method" name="LoginMethod">
+                            <option value="">Select Login Method</option>
+                            <option value="Custom">Custom</option>
+                            <option value="SSO">SSO</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Email<span
+                                style="color: red;">*</span></label>
+                        <input type="text" class="form-control inputStyle" [(ngModel)]="email" name="UserName"
+                            placeholder="Enter email" />
+                    </div>
+
+                </div>
+                <div class="row Rowstyle">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Employee First Name<span
+                                style="color: red;">*</span></label>
+                        <input (keypress)="commonService.blockspecialcharacter($event)" type="text"
+                            class="form-control inputStyle" [(ngModel)]="first_name" name="first_name"
+                            placeholder="Enter first name" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Employee Last Name<span
+                                style="color: red;">*</span></label>
+                        <input (keypress)="commonService.blockspecialcharacter($event)" type="text"
+                            class="form-control inputStyle" [(ngModel)]="last_name" name="last_name"
+                            placeholder="Enter last name" />
+                    </div>
+
+                </div>
+                <div class="row Rowstyle">
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Employee Username<span
+                                style="color: red;">*</span></label>
+                        <input type="text"
+                            class="form-control inputStyle" [(ngModel)]="username" name="username"
+                            placeholder="Enter username" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="recipient-name" class="col-form-label">Status
+                        </label><br>
+                        <mat-radio-group style="line-height: 2.2;" name="opList" [(ngModel)]="status">
+                            <mat-radio-button value="1" checked="true" name="opList">Active</mat-radio-button>
+                            <mat-radio-button style="margin-left: 16px;" value="0" name="opList">Inactive
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+
+                </div>
+
+                <button type="button" class=" btn btn-primary cstmBtnEmpMaster mainBtnColor"
+                    (click)="addUser()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

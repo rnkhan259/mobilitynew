@@ -49,4 +49,9 @@ export class CommonserviceService {
 
     return false;
   };
+
+  blockspecialcharacter(e) {
+    var key = document.all ? key = e.keyCode : key = e.which;
+    return ((key > 64 && key < 91) || (key > 96 && key < 123) || key == 8 || (key >= 48 && key <= 57));
+  }
 }

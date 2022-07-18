@@ -1,206 +1,194 @@
 <div class="row marleft">
-    <div class="col m10 s10">
+  <div class="col m10 s10">
 
-      <div class="col m12 s12 mainDivStyle" style="padding: 0;">
-        <div class="col m12 s12 white mat-elevation-z4 paddingBottomstyle">
-          <div class="col-md-12 addMoreBtn">
+    <div class="col m12 s12 mainDivStyle">
+      <div class="col m12 s12 white mat-elevation-z4 paddingBottomstyle">
+        <form class="formStyle" autocomplete="off">
+          <div>
+            <section class="">
+              <h6 class="titleDiv">General Information</h6>
+             
+              <div class="row Rowstyle">
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Organization Name:<span
+                      style="color: red;">*</span></label>
+                  <input type="text" class="form-control inputStyle" placeholder="Please enter organization name"
+                    name="org_name" [(ngModel)]="org_name" />
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Year Founded:<span style="color: red;">*</span>
+                  </label>
+                  <input type="text" (keypress)="commonService.isNumberYear($event)" class="form-control inputStyle"
+                    name="found_year" [(ngModel)]="found_year" placeholder="Please enter year founded" />
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Organization Type:
+                  </label>
+                  <select class="form-control inputStyle" placeholder="Please select organization type"
+                    name="organisationType" [(ngModel)]="organisationType">
+                    <option value="">Select organization type</option>
+                    <option value="I.T">I.T</option>
+                    <option value="Services">Services</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row Rowstyle">
+
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> Fax:
+                  </label>
+                  <input (keypress)="commonService.isNumber($event)" type="text" placeholder="Please enter Fax"
+                    class="form-control inputStyle" name="fax" [(ngModel)]="fax" />
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> Organization Information:
+                  </label>
+                  <input type="text" class="form-control inputStyle" placeholder="Please enter organization information"
+                    name="orgInfo" [(ngModel)]="orgInfo" />
+
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Web Url:
+                  </label>
+                  <input type="text" class="form-control inputStyle" placeholder="Please enter web url" name="webUrl"
+                    [(ngModel)]="webUrl" />
+                </div>
+
+              </div>
+              <div class="row Rowstyle">
+
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Status:
+                  </label>
+                  <mat-radio-group [ngModelOptions]="{standalone: true}" (change)="onStatusChange($event)" name="opList"
+                    [(ngModel)]="statusOrg">
+                    <mat-radio-button value="1" checked="true" name="opList">Active</mat-radio-button>
+                    <mat-radio-button value="0" name="opList">Inactive</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="col-md-4" *ngIf="isStatusActive">
+                  <label for="recipient-name" class="col-form-label">Active Start Date<span
+                      style="color: red;">*</span></label>
+                  <input type="text" [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}" ngxDaterangepickerMd
+                    name="active_start_date" [(ngModel)]="active_start_date" [singleDatePicker]="true"
+                    [autoApply]="true" class="form-control" />
+                </div>
+
+                <div class="col-md-4" *ngIf="isStatusActive">
+                  <label for="recipient-name" class="col-form-label">Active End Date<span
+                      style="color: red;">*</span></label>
+                      <input type="text" [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}" ngxDaterangepickerMd
+                      name="active_end_date" [(ngModel)]="active_end_date"  [min]="min_date" [singleDatePicker]="true"
+                      [autoApply]="true" class="form-control" />
+                </div>
+              </div>
+              <div class="row Rowstyle">
+              </div>
+              <h6 class="titleDiv">Contact Information</h6>
+              
+              <div class="row Rowstyle">
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> Contact Person Name:
+                  </label>
+                  <input (keypress)="commonService.alphaOnly($event)" placeholder="Please enter contact person name"
+                    type="text" class="form-control inputStyle" name="personName" [(ngModel)]="personName" />
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Contact Person Email:
+                  </label>
+                  <input type="text" class="form-control inputStyle" placeholder="Please enter contact person email"
+                    name="personMail" [(ngModel)]="personMail" />
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Contact Person Phone:
+                  </label>
+                  <input (keypress)="commonService.isNumber($event)" placeholder="Please enter contact person phone"
+                    type="text" class="form-control inputStyle" name="personPhn" [(ngModel)]="personPhn" />
+                </div>
+              </div>
+
+              <div class="row Rowstyle">
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> Country:
+                  </label>
+                  <select class="form-control inputStyle" placeholder="Please select Country" name="country"
+                    [(ngModel)]="country">
+                    <option value="">Select Country</option>
+                  </select>
+                 
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> State:
+                  </label>
+                  <select class="form-control inputStyle" placeholder="Please select State" name="state"
+                    [(ngModel)]="state">
+                    <option value="">Select State</option>
+                  </select>
+              
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> City:
+                  </label>
+                  <input placeholder="Please enter city" type="text" class="form-control inputStyle" name="city"
+                    [(ngModel)]="city" />
+
+                </div>
+              </div>
+              <div class="row Rowstyle">
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">Zip Code:
+                  </label>
+                  <input type="text" placeholder="Please enter zip code" class="form-control inputStyle" name="zip"
+                    [(ngModel)]="zip" />
+                </div>
+                <div class="col-md-8">
+                  <label for="recipient-name" class="col-form-label">HQ Address:
+                  </label>
+                  <textarea placeholder="Please enter address..." class="textareaStyle form-control" rows="4" cols="50"
+                    name="hq_add" [(ngModel)]="hq_add"></textarea>
+                </div>
+
+
+              </div>
+              <h6 class="titleDiv" >Tax Information</h6>
+            
+              <div class="row Rowstyle">
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label">PAN:
+                  </label>
+                  <input type="text" placeholder="Please enter pan" maxlength="10"
+                    class="form-control inputStyle uppercase" name="pan" [(ngModel)]="pan" />
+
+                </div>
+                <div class="col-md-4">
+                  <label for="recipient-name" class="col-form-label"> TAN:
+                  </label>
+                  <input type="text" maxlength="10" placeholder="Please enter tan"
+                    class="form-control inputStyle uppercase" name="tan" [(ngModel)]="tan" />
+                </div>
+              </div>
+
+              <div class="row Rowstyle">
+
+
+              </div>
+            </section>
           </div>
-          <form class="formStyle" autocomplete="off">
-            <div>
-              <section class="">
-                <h6 class="titleDiv" style="margin: 1% 0.5% -4px!important;font-weight: 500;">General Information</h6>
-                <meter style="margin: 1.5% 1.5% 1.5% 0.5% !important;" value="0.5" min="0" max="10"
-                  class="meterTag2 meterTag3 colorStyle"></meter>
-                <div class="row Rowstyle">
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Organization Name:<span
-                        style="color: red;">*</span></label>
-                    <input type="text" class="form-control inputStyle" placeholder="Please enter organization name" name="org_name" [(ngModel)]="org_name" />
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Year Founded:<span style="color: red;">*</span>
-                    </label>
-                    <input type="text" (keypress)="commonService.isNumberYear($event)" class="form-control inputStyle" name="found_year"
-                      [(ngModel)]="found_year" placeholder="Please enter year founded"/>
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Organization Type:
-                    </label>
-                    <select class="form-control inputStyle" placeholder="Please select organization type" name="organisationType" [(ngModel)]="organisationType">
-                      <!-- <option value="">Select organization type</option> -->
-                      <option value="I.T">I.T</option>
-                      <option value="Services">Services</option>
-                      <option value="Others">Others</option>
-                    </select>
-                  </div>
-                </div>
-  
-                <div class="row Rowstyle">
-  
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> Fax:
-                    </label>
-                    <input (keypress)="commonService.isNumber($event)" type="text" placeholder="Please enter Fax" class="form-control inputStyle" name="fax"
-                      [(ngModel)]="fax" />
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> Organization Information:
-                    </label>
-                    <input type="text" class="form-control inputStyle" placeholder="Please enter organization information" name="orgInfo" [(ngModel)]="orgInfo" />
-  
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Web Url:
-                    </label>
-                    <input type="text" class="form-control inputStyle" placeholder="Please enter web url" name="webUrl" [(ngModel)]="webUrl" />
-                  </div>
-  
-                </div>
-                <div class="row Rowstyle">
-  
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Status:
-                    </label>
-                    <mat-radio-group [ngModelOptions]="{standalone: true}"
-                      (change)="onStatusChange($event)" name="opList" [(ngModel)]="statusOrg">
-                      <mat-radio-button value="1" checked="true" name="opList">Active</mat-radio-button>
-                      <mat-radio-button value="0" name="opList">Inactive</mat-radio-button>
-                    </mat-radio-group>
-                  </div>
-                  <div class="col-md-4" *ngIf="isStatusActive">
-                    <label for="recipient-name" class="col-form-label">Active Start Date<span
-                        style="color: red;">*</span></label>
-                    <!-- <input [owlDateTimeTrigger]="start" placeholder="Please select active start date" [owlDateTime]="start" class="form-control inputStyle"
-                      name="active_start_date" [(ngModel)]="active_start_date" readonly />
-                    <owl-date-time [pickerType]="'calendar'" #start></owl-date-time> -->
-                  </div>
-  
-                  <div class="col-md-4" *ngIf="isStatusActive">
-                    <label for="recipient-name" class="col-form-label">Active End Date<span
-                        style="color: red;">*</span></label>
-                    <!-- <input [owlDateTimeTrigger]="end" [owlDateTime]="end" placeholder="Please select active end date" [min]="active_start_date"
-                      class="form-control inputStyle" name="active_end_date" [(ngModel)]="active_end_date" readonly />
-                    <owl-date-time [pickerType]="'calendar'" #end></owl-date-time> -->
-                  </div>
-                </div>
-                <div class="row Rowstyle">
-                </div>
-                <h6 class="titleDiv" style="margin: 2% 0.5% -4px!important;font-weight: 500;">Contact Information</h6>
-                <meter style="margin: 1.5% 1.5% 1.5% 0.5% !important;" value="0.5" min="0" max="10"
-                  class="meterTag2 meterTag3 colorStyle"></meter>
-                <div class="row Rowstyle">
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> Contact Person Name:
-                    </label>
-                    <input (keypress)="commonService.alphaOnly($event)" placeholder="Please enter contact person name" type="text" class="form-control inputStyle" name="personName"
-                      [(ngModel)]="personName" />
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Contact Person Email:
-                    </label>
-                    <input type="text" class="form-control inputStyle" placeholder="Please enter contact person email" name="personMail" [(ngModel)]="personMail" />
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Contact Person Phone:
-                    </label>
-                    <input (keypress)="commonService.isNumber($event)" placeholder="Please enter contact person phone" type="text" class="form-control inputStyle" name="personPhn"
-                      [(ngModel)]="personPhn" />
-                  </div>
-                </div>
-  
-                <div class="row Rowstyle">
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> Country:
-                    </label>
-                    <select class="form-control inputStyle" placeholder="Please select Country" name="organisationType" [(ngModel)]="country">
-                        <option value="">Select Country</option>
-                      </select>
-                    <!-- <input type="text" class="form-control form-control-sm inputStyle searchImg1" [value]="country2"
-                    placeholder="Please enter country" (keyup)="countryList($event.target.value)" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                      <mat-option *ngFor="let country of getCountryList" (onSelectionChange)="handleCountry(country)"
-                        style="border-bottom: 1px solid #ccc;">
-                        <span *ngIf="country">{{country.name}}</span>
-                      </mat-option>
-                    </mat-autocomplete> -->
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> State:
-                    </label>
-                    <select class="form-control inputStyle" placeholder="Please select State" name="organisationType" [(ngModel)]="state">
-                        <option value="">Select State</option>
-                      </select>
-                    <!-- <input type="text" placeholder="Please enter state" ngxTypeahead class="form-control form-control-sm inputStyle searchImg1"
-                      [value]="state?.name" [(ngModel)]="state2" name="state2" [taItemTpl]="itemTplState"
-                      [taList]="stateList" (taSelected)="handleState($event)">
-                    <ng-template #itemTplState let-result class="list-item">
-                      <div>
-                        <strong>{{ result.result.name }}</strong>
-                      </div>
-                    </ng-template> -->
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> City:
-                    </label>
-                    <input placeholder="Please enter city" type="text" class="form-control inputStyle" name="city" [(ngModel)]="city" />
-  
-                  </div>
-                </div>
-                <div class="row Rowstyle">
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">Zip Code:
-                    </label>
-                    <input type="text" placeholder="Please enter zip code" class="form-control inputStyle" name="zip" [(ngModel)]="zip" />
-                  </div>
-                  <div class="col-md-8">
-                    <label for="recipient-name" class="col-form-label">HQ Address:
-                    </label>
-                    <textarea placeholder="Please enter address..." class="textareaStyle form-control" rows="4" cols="50" name="hq_add"
-                      [(ngModel)]="hq_add"></textarea>
-                  </div>
-  
-  
-                </div>
-                <h6 class="titleDiv" style="margin: 2% 0.5% -4px!important;font-weight: 500;">Tax Information</h6>
-                <meter style="margin: 1.5% 1.5% 1.5% 0.5% !important;" value="0.5" min="0" max="10"
-                  class="meterTag2 meterTag3 colorStyle"></meter>
-  
-                <div class="row Rowstyle">
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label">PAN:
-                    </label>
-                    <input type="text" placeholder="Please enter pan" style="text-transform:uppercase;" maxlength="10" class="form-control inputStyle"
-                      name="pan" [(ngModel)]="pan" />
-  
-                  </div>
-                  <div class="col-md-4">
-                    <label for="recipient-name" class="col-form-label"> TAN:
-                    </label>
-                    <input type="text" maxlength="10" placeholder="Please enter tan" style="text-transform:uppercase;" class="form-control inputStyle"
-                      name="tan" [(ngModel)]="tan" />
-                  </div>
-                </div>
-  
-                <div class="row Rowstyle">
-  
-  
-                </div>
-              </section>
-            </div>
-  
-          </form>
-          <!-- <div class="cstmFooter">
-            <button *ngIf="!isUdate" type="reset" class="btn btn-primary cstmBtnEmpMaster secondBtnColor"
+
+        </form>
+        <div class="cstmFooter">
+            <!-- <button *ngIf="!isUdate" type="reset" class="btn btn-primary cstmBtnEmpMaster secondBtnColor"
               (click)="resetForm()">Reset</button>
-            <button *ngIf="!isUdate" type="button" class=" btn btn-primary cstmBtnEmpMaster mainBtnColor"
-              (click)="submit()">Submit</button>
             <button *ngIf="isUdate" type="reset" class="btn btn-primary cstmBtnEmpMaster secondBtnColor"
-              (click)="cancel()">Cancel</button>
-            <button *ngIf="isUdate" type="button" class="btn btn-primary cstmBtnEmpMaster mainBtnColor"
+              (click)="cancel()">Cancel</button> -->
+              <button *ngIf="!id" type="button" class=" btn btn-primary cstmBtnEmpMaster mainBtnColor"
+              (click)="addOrg()">Submit</button>
+            <button type="button" *ngIf="id" class="btn btn-primary cstmBtnEmpMaster mainBtnColor"
               (click)="updateOrg()">Update</button>
-          </div> -->
-        </div>
+          </div>
       </div>
     </div>
   </div>
-  
+</div>

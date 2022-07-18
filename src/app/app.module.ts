@@ -46,7 +46,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
-
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import { PowerBIEmbedModule } from 'powerbi-client-angular';
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
     FormsModule,
+    NgxDaterangepickerMd.forRoot(),
     MatSidenavModule,
     MatToolbarModule,    
     MatSlideToggleModule,
