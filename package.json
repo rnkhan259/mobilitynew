@@ -26,6 +26,7 @@
     "ngx-daterangepicker-material": "^5.0.2",
     "ngx-pagination": "^6.0.2",
     "ngx-toastr": "^14.2.2",
+    "npkill": "^0.8.3",
     "powerbi-client-angular": "^2.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
