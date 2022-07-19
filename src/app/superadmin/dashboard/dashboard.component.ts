@@ -25,4 +25,7 @@ export class DashboardComponent implements OnInit {
   pushToPageOrganisation() {
     this.router.navigate(['/superadmin/organization']);
   }
+  pushToPageUsers(){
+    this.router.navigate(['/superadmin/users']);
+  }
 }
