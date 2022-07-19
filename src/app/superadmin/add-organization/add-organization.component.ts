@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LocaleConfig } from 'ngx-daterangepicker-material';
 import { ApiserviceService } from 'src/app/sevices/apiservice.service';
 import { CommonserviceService } from 'src/app/sevices/commonservice.service';
 
@@ -33,7 +34,9 @@ export class AddOrganizationComponent implements OnInit {
   country: any;
   state: any;
   statusOrg:any="0";
-  constructor(private route: ActivatedRoute, private apiService: ApiserviceService,public commonService:CommonserviceService) {
+
+  min_date:any="";
+  constructor(private router:Router,private route: ActivatedRoute, private apiService: ApiserviceService,public commonService:CommonserviceService) {
     this.id = this.route.snapshot.paramMap.get("id");
   }
 
@@ -90,4 +93,138 @@ export class AddOrganizationComponent implements OnInit {
     );
   }
 
+  datesUpdated(){
+    
+  }
+
+
+  addOrg(){
+      if (this.org_name=='' || this.active_start_date =='' || this.active_end_date =='') {
+        this.commonService.showAlert('Alert', 'Please fill all mandatory field(s)')
+        return false;
+      }
+      // if (this.found_year > cYear) {
+      //   this.commonService.showAlert('Alert', 'Founded Year should be less than or equal to current Year')
+      //   return false;
+      // }
+      if (this.found_year.length < 4) {
+        this.commonService.showAlert('Alert', 'Please enter correct Year of foundation')
+        return false;
+      }
+  
+      // if (this.isStatusActive == false) {
+      //   this.active_start_date = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+      //   this.active_end_date = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+      // }
+  
+      if (this.active_end_date < this.active_start_date) {
+        // this.commonService.showAlert('Alert', 'Active end date should greater than Active start date').then(
+        //   (result: any) => {
+        //     return;
+        //   });
+        // return false;
+      }
+  
+      var jsonData = {
+        "org_name": this.org_name,
+        "year_founded": this.found_year,
+        "HQ_add": this.hq_add,
+        "country": this.country,
+        "state": this.state,
+        "city": this.city,
+        "org_info": this.orgInfo,
+        "org_type": this.organisationType,
+        "zip_code": this.zip,
+        "fax": this.fax,
+        "pan_no": this.pan,
+        "tan_no": this.tan,
+        "web_url": this.webUrl,
+        "contact_person_name": this.personName,
+        "contact_person_email": this.personMail,
+        "contact_person_phone": this.personPhn,
+        "status": this.statusOrg,
+        // "start_date": "",//new Date(this.active_start_date).toISOString().split('T')[0],
+        // "end_date": ""//new Date(this.active_end_date).toISOString().split('T')[0]
+      }
+  
+      this.apiService.requestViaPost('/add_organization/', jsonData).then(
+        (result: any) => {
+          if (result.status) {
+            this.commonService.showSuccess("Success",result.massage)
+            this.router.navigate(['/superadmin/organization']);
+          }else{
+            this.commonService.showError("Error",result.error)
+          }
+        }, (err) => {
+         
+        }
+      );
+    
+  }
+
+
+  updateOrg(){
+    if (this.org_name=='' || this.active_start_date =='' || this.active_end_date =='') {
+      this.commonService.showAlert('Alert', 'Please fill all mandatory field(s)')
+      return false;
+    }
+    // if (this.found_year > cYear) {
+    //   this.commonService.showAlert('Alert', 'Founded Year should be less than or equal to current Year')
+    //   return false;
+    // }
+    if (this.found_year.length < 4) {
+      this.commonService.showAlert('Alert', 'Please enter correct Year of foundation')
+      return false;
+    }
+
+    // if (this.isStatusActive == false) {
+    //   this.active_start_date = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+    //   this.active_end_date = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+    // }
+
+    if (this.active_end_date < this.active_start_date) {
+      // this.commonService.showAlert('Alert', 'Active end date should greater than Active start date').then(
+      //   (result: any) => {
+      //     return;
+      //   });
+      // return false;
+    }
+
+    var jsonData = {
+      "org_name": this.org_name,
+      "year_founded": this.found_year,
+      "HQ_add": this.hq_add,
+      "country": this.country,
+      "state": this.state,
+      "city": this.city,
+      "org_info": this.orgInfo,
+      "org_type": this.organisationType,
+      "zip_code": this.zip,
+      "fax": this.fax,
+      "pan_no": this.pan,
+      "tan_no": this.tan,
+      "web_url": this.webUrl,
+      "contact_person_name": this.personName,
+      "contact_person_email": this.personMail,
+      "contact_person_phone": this.personPhn,
+      "status": this.statusOrg,
+      // "start_date": "",//new Date(this.active_start_date).toISOString().split('T')[0],
+      // "end_date": ""//new Date(this.active_end_date).toISOString().split('T')[0]
+    }
+
+    this.apiService.requestViaPatch('/organization/'+this.id+"/", jsonData).then(
+      (result: any) => {
+        if (result.status) {
+          this.commonService.showSuccess("Success",result.massage)
+          this.router.navigate(['/superadmin/organization']);
+        }else{
+          this.commonService.showError("Error",result.error)
+        }
+      }, (err) => {
+       
+      }
+    );
+  
+}
+  
 }
